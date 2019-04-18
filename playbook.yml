@@ -43,7 +43,8 @@
     command: systemctl disable firewalld
     become: yes
 
-  - replace:
+  - name: disable swap
+    replace:
       path: /etc/fstab
       regexp: '^/dev/mapper/centos-swap\s*swap\s*swap\s*defaults\s*[0-9]\s*[0-9]$'
       replace: '# /dev/mapper/centos-swap swap                    swap    defaults        0 0'
